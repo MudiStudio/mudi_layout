@@ -32,8 +32,9 @@ namespace mudi {
 			iconName.referTo(state, VTIDs::iconNamePropertyIdentifier, nullptr);
 			iconName.setDefault("");
 
-            String iconNameStr = iconName.get();
-			iconData = getBinaryRes(iconNameStr);
+			//TODO_UMB
+            //String iconNameStr = iconName.get();
+			//iconData = getBinaryRes(iconNameStr);
 
 			isCollapsed.referTo(state, VTIDs::layoutCollapsedPropertyIdentifier, nullptr);
 			isCollapsed.setDefault(false);
@@ -161,7 +162,8 @@ namespace mudi {
 
 		void Layout::paint(Graphics& g) {
 
-			auto bgC = ServiceLocator->getResourcesService()->getLookAndFeelColour(mudi_lnf::MudiLookAndFeel::ColourScheme::BG0);
+			//TODO_UMB
+			auto bgC = Colours::red;//ServiceLocator->getResourcesService()->getLookAndFeelColour(mudi_lnf::MudiLookAndFeel::ColourScheme::BG0);
 			g.fillAll(bgC);
 
 			if (getItemsSize() == 0) {
@@ -256,8 +258,6 @@ namespace mudi
 
 			state = ValueTree(VTIDs::rootNodeIdentifier);
 
-			mudi_project::EditManager->addEditManagedListener(this);
-
 			buildLayoutList();
 
 		}
@@ -266,7 +266,6 @@ namespace mudi
 			clearLayout();
 			resetChangeListener();
 			clearSingletonInstance();
-			mudi_project::EditManager->removeEditManagedListener(this);
 		}
 
 		BaseLayoutComponent* MudiLayoutManager::createBaseLayoutComponentFromVt(ValueTree& vt) {
@@ -360,21 +359,27 @@ namespace mudi
 
 		void MudiLayoutManager::initChangeListener() {
 
+#if 0
 			if (auto* sm = mudi::mudi_api::Api->getCurrentlyFocusedSelectionManagerWithValidEdit()) {
 
 				sm->addChangeListener(this);
 
 			}
+#endif // 0
+
 			
 		}
 
 		void MudiLayoutManager::resetChangeListener() {
 
+#if 0
 			if (auto* sm = mudi::mudi_api::Api->getCurrentlyFocusedSelectionManagerWithValidEdit()) {
 
 				sm->removeChangeListener(this);
 
 			}
+#endif // 0
+
 
 		}
 
@@ -505,17 +510,22 @@ namespace mudi
 		
 		Component* MudiLayoutManager::buildLayout(const String layoutType) {
 			
+#if 0
 			int file_size = 0;
 
 			String currentLayoutType = layoutType.equalsIgnoreCase("0") ? "" : layoutType;
 
 			String layoutRes = "layout" + currentLayoutType + "_xml";
 
+			//TODO_UMB
 			const char* xmlData = BinaryData::getNamedResource(layoutRes.toRawUTF8(), file_size);
 
 			File appPrefs = Api->getEngine()->getPropertyStorage().getAppPrefsFolder();
 
 			return buildLayout(appPrefs, xmlData, file_size, "", currentLayoutType);
+#endif // 0
+
+			return nullptr;
 
 		}
 
@@ -640,7 +650,8 @@ namespace mudi
 
 			const std::unique_ptr<XmlElement> xml = layoutDocument.getDocumentElement();
 
-			auto currentAppVersion = Api->getVersionStringNumber();
+			//TODO_UMB 
+			auto currentAppVersion = "1.0.0";//Api->getVersionStringNumber();
 
 			state = ValueTree::fromXml(*xml);
 
@@ -1153,6 +1164,9 @@ namespace mudi
 		}
 
 		void MudiLayoutManager::changeListenerCallback(ChangeBroadcaster* source) {
+
+			//TODO_UMB questo riguarda la gestione degli eventi
+#if 0
 			auto selectionManager = dynamic_cast<SelectionManager*>(source);
 
 			if (selectionManager)
@@ -1166,9 +1180,9 @@ namespace mudi
 				if (selectedObject)
 				{
 					if (isSel)
-						eventProcessor.fireEvent(VTIDs::selectedEventPropertyIdentifier.toString(), "WaveAudioClip","show_clip_ditor_selected2");
+						eventProcessor.fireEvent(VTIDs::selectedEventPropertyIdentifier.toString(), "WaveAudioClip", "show_clip_ditor_selected2");
 					else
-						eventProcessor.fireEvent(VTIDs::unselectedEventPropertyIdentifier.toString(), "WaveAudioClip","show_clip_ditor_selected2");
+						eventProcessor.fireEvent(VTIDs::unselectedEventPropertyIdentifier.toString(), "WaveAudioClip", "show_clip_ditor_selected2");
 
 					return;
 				}
@@ -1178,9 +1192,9 @@ namespace mudi
 				if (midiClipObject)
 				{
 					if (isSel)
-						eventProcessor.fireEvent(VTIDs::selectedEventPropertyIdentifier.toString(), "MidiClip","show_clip_editor_selected");
+						eventProcessor.fireEvent(VTIDs::selectedEventPropertyIdentifier.toString(), "MidiClip", "show_clip_editor_selected");
 					else
-						eventProcessor.fireEvent(VTIDs::unselectedEventPropertyIdentifier.toString(), "MidiClip","show_clip_editor_selected");
+						eventProcessor.fireEvent(VTIDs::unselectedEventPropertyIdentifier.toString(), "MidiClip", "show_clip_editor_selected");
 
 					return;
 				}
@@ -1196,18 +1210,8 @@ namespace mudi
 
 					return;
 				}*/
-
-
 			}
-		}
-		
-		void MudiLayoutManager::editChanged() {
-			initChangeListener();
-		}
-
-		//Call this as a tearDown method ( you must destroy all the objs here )
-		void MudiLayoutManager::editIsAboutToBeChanged(Edit* editThatIsGoingToChange, Edit* newSelectedEdit) {
-			resetChangeListener();
+#endif // 0
 		}
 
 		void MudiLayoutManager::checkForCollapsedLayout() {
@@ -1220,22 +1224,6 @@ namespace mudi
 		}
 
 		void MudiLayoutManager::checkForDawAndDjLayout() {
-
-			bool dawLayoutFound = false;
-			bool djLayoutFound = false;
-
-			for (auto& [k, v] : allComps) {
-				if (k == VTIDs::dawLayoutIdentifier.toString())
-					dawLayoutFound = true;
-				if (k == VTIDs::djLayoutIdentifier.toString())
-					djLayoutFound = true;
-				if (dawLayoutFound && djLayoutFound)
-					return;
-			}
-
-
-			//Controllare nell'xml la presenza dei layout con id "DawLayout" e "DjLayout" ( tali valori sono cablati come identifier nel VTIDs namespace )
-			jassertfalse;
 
 		}
 
@@ -1296,6 +1284,8 @@ namespace mudi
 
 			StringArray layoutFilesArray;
 
+			//TODO_UMB
+#if 0
 			for (const String& l : ServiceLocator->getResourcesService()->getNamedResourceList()) {
 
 				if (l.containsIgnoreCase("layout")) {
@@ -1305,6 +1295,8 @@ namespace mudi
 				}
 
 			}
+#endif // 0
+
 
 			return layoutFilesArray;
 
@@ -1316,7 +1308,8 @@ namespace mudi
 
 				int layoutFileSize = 0;
 
-				const char* resource = ServiceLocator->getResourcesService()->getNamedResource(l.toRawUTF8(), layoutFileSize);
+				//TODO_UMB
+				const char* resource = "";//ServiceLocator->getResourcesService()->getNamedResource(l.toRawUTF8(), layoutFileSize);
 
 				MemoryInputStream ms((const void*)resource, layoutFileSize, false);
 
@@ -1330,7 +1323,8 @@ namespace mudi
 
 				const String resourceLayoutName = resourceLayout->getStringAttribute(VTIDs::layoutNamePropertyIdentifier, "");
 
-				const String originalFileName = ServiceLocator->getResourcesService()->getNamedResourceOriginalFilename(l.toRawUTF8());
+				//TODO_UMB
+				const String originalFileName = "";//ServiceLocator->getResourcesService()->getNamedResourceOriginalFilename(l.toRawUTF8());
 
 				layoutFileNameMap[originalFileName] = resourceLayoutName;
 

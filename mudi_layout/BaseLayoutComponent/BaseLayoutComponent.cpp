@@ -44,15 +44,18 @@ namespace mudi
 			prefSize.referTo(parametersVT, VTIDs::defPreferredSizePropertyIdentifier, nullptr);
 			prefSize.setDefault(0);
 
-            String iconNameStr = iconName.get();
-			imageData = getBinaryRes(iconNameStr);
+			//@@@ TODO_UMB
+            //String iconNameStr = iconName.get();
+			//imageData = getBinaryRes(iconNameStr);
 
 		}
 
 		void BaseLayoutComponent::paintOverChildren(Graphics& g) {
 
+#if 0
 			if (!showEmptyEdit)
 				return;
+
 
 			if (!Api->getCurrentlyFocusedEdit()) {
 
@@ -68,6 +71,8 @@ namespace mudi
 				g.drawFittedText(TRANS(textToShow), area, Justification::centred, 1, 1.0f);
 
 			}
+#endif // 0
+
 
 		}
 		

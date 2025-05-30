@@ -4,8 +4,6 @@ namespace mudi {
 	{
 		using namespace juce;
 
-		using namespace mudi::mudi_utilities;
-
 		StackLayoutHaeder::StackLayoutHaeder(StackLayout* l) : layout(l) ,
 			customComponent(nullptr)
 		{
@@ -37,7 +35,7 @@ namespace mudi {
 
 		void StackLayoutHaeder::addBtn(const String& componentId, const void* xmlData, size_t numBytes) {
 
-			mudi::mudi_utilities::DrawableBtnComponent * b = new mudi::mudi_utilities::DrawableBtnComponent(true,true);
+			DrawableBtnComponent * b = new DrawableBtnComponent(true,true);
 			
 			b->setRadioGroupId(1, dontSendNotification);
 

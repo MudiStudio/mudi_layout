@@ -25,4 +25,3 @@
 #include "MudiLayoutManager/StackLayout.cpp"
 #include "MudiLayoutManager/StretchLayout.cpp"
 #include "MudiLayoutManager/StretchMultiViewLayout.cpp"
-#include "MudiLayoutManager/ScreenManager.cpp"

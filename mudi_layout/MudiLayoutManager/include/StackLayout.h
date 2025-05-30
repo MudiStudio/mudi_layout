@@ -6,8 +6,6 @@ namespace mudi
 		using namespace juce;
 		using namespace std;
 
-		using namespace mudi::mudi_utilities;
-
 		//class DrawableBtnComponent;
 		class StackLayoutHaeder;
 		

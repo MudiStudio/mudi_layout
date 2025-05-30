@@ -13,7 +13,7 @@
   name:               Mudi Layout
   description:        Give layout classes to easy create the app layout
 
-  dependencies:       juce_core,juce_graphics,juce_gui_basics,mudi_api,mudi_utilities,mudi_services
+  dependencies:       juce_core,juce_graphics,juce_gui_basics
 
  END_JUCE_MODULE_DECLARATION
 
@@ -26,11 +26,6 @@
 #include <juce_graphics/juce_graphics.h>
 #include <juce_gui_basics/juce_gui_basics.h>
 
-#include <mudi_api/mudi_api.h>
-#include <mudi_utilities/mudi_utilities.h>
-#include <mudi_services/mudi_services.h>
-#include <mudi_project/mudi_project.h>
-
 #ifdef JUCE_MODULE_AVAILABLE_mudi_glfw
 #include <mudi_glfw/mudi_glfw.h>
 #endif // JUCE_MODULE_AVAILABLE_mudi_glfw
@@ -40,13 +35,6 @@ namespace mudi {
 	namespace mudi_layout {
 
 		using namespace juce;
-
-		using namespace tracktion::engine;
-		using namespace tracktion::core;
-		using namespace tracktion::graph;
-
-		using namespace mudi::mudi_utilities;
-		using namespace mudi::mudi_services;
 
 		class BaseLayoutComponent;
 
@@ -78,6 +66,6 @@ namespace mudi {
 #include "MudiLayoutManager/include/StackLayout.h"
 #include "MudiLayoutManager/include/StretchLayout.h"
 #include "MudiLayoutManager/include/StretchMultiViewLayout.h"
-#include "MudiLayoutManager/include/ScreenManager.h"
 
 #include "LayoutUtilities/include/LayoutUtilities.h"
+#include "VTIdentifiers.h"

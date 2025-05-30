@@ -203,8 +203,25 @@ namespace mudi
 		
 #define LayoutManager MudiLayoutManager::getInstance()
 
-		class MudiLayoutManager : /*private DeletedAtShutdown,*/ public ChangeListener, private mudi::mudi_project::MudiEditManager::Listener {
+		class MudiLayoutManager : /*private DeletedAtShutdown,*/ public ChangeListener {
 		public:
+
+			//Init callback
+			
+			//This should be 'Api->getCurrentUIBehaviour().getApplicationCommandManager()'
+			std::function<ApplicationCommandManager* ()> getApplicationCommandManager = [](){return nullptr; };
+
+			//Api->getCurrentUIBehaviour().getAllCommands(commands);
+			std::function<void(Array<CommandID>& commands)> getAllCommands = [](Array<CommandID>& commands) {};
+
+			//Api->getCurrentUIBehaviour().getCommandInfo(commandID, result);
+			std::function<void(CommandID commandID, ApplicationCommandInfo& result)> getCommandInfo = [](CommandID commandID, ApplicationCommandInfo& result) {};
+
+			//return Api->getCurrentUIBehaviour().perform(info);
+			std::function<void(const juce::ApplicationCommandTarget::InvocationInfo& info)> perform = [](const juce::ApplicationCommandTarget::InvocationInfo& info) {};
+
+
+			// -------------------------------- //
 
 			virtual ~MudiLayoutManager();
 
@@ -408,12 +425,6 @@ namespace mudi
 		protected:
 
 			void changeListenerCallback(ChangeBroadcaster* source) override;
-
-			//Call this as a setUp method ( you must create all objs here )
-			virtual void editChanged() override;
-
-			//Call this as a tearDown method ( you must destroy all the objs here )
-			virtual void editIsAboutToBeChanged(Edit* editThatIsGoingToChange, Edit* newSelectedEdit) override;
 
 		private:
 

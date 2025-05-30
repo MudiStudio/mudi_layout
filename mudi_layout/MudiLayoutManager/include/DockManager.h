@@ -33,9 +33,9 @@ namespace mudi
 		class MudiResizableWindow : public DockBaseResizableWindow, public ApplicationCommandTarget {
 		public:
 
-			MudiResizableWindow(const String& id, bool closeApplicationOnCloseButton = false) : DockBaseResizableWindow(id, closeApplicationOnCloseButton){
+			MudiResizableWindow(const juce::String& id, bool closeApplicationOnCloseButton = false) : DockBaseResizableWindow(id, closeApplicationOnCloseButton){
 			
-				if (auto cm = Api->getCurrentUIBehaviour().getApplicationCommandManager()) {
+				if (auto cm = LayoutManager->getApplicationCommandManager()) {
 					cm->registerAllCommandsForTarget(this);
 					addKeyListener(cm->getKeyMappings());
 				}
@@ -44,7 +44,7 @@ namespace mudi
 			}
 
 			~MudiResizableWindow() {
-				if (auto cm = Api->getCurrentUIBehaviour().getApplicationCommandManager()) {
+				if (auto cm = LayoutManager->getApplicationCommandManager()) {
 					removeKeyListener(cm->getKeyMappings());
 				}
 			}
@@ -58,15 +58,15 @@ namespace mudi
 			}
 
 			virtual void getAllCommands(Array<CommandID>& commands) {
-				Api->getCurrentUIBehaviour().getAllCommands(commands);
+				LayoutManager->getAllCommands(commands);
 			}
 
 			virtual void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override {
-				Api->getCurrentUIBehaviour().getCommandInfo(commandID, result);
+				LayoutManager->getCommandInfo(commandID, result);
 			}
 
 			virtual bool perform(const InvocationInfo& info) override {
-				return Api->getCurrentUIBehaviour().perform(info);
+				LayoutManager->perform(info);
 			}
 
 			// =====================//

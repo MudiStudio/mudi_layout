@@ -1,7 +1,6 @@
 namespace mudi
 {
-	namespace stem_layout{
-
+	namespace mudi_layout {
 
 		namespace VTIDs
 		{
@@ -21,6 +20,7 @@ namespace mudi
 			static const juce::Identifier screenNodeIdentifier("SCREEN");
 			static const juce::Identifier screensNodeIdentifier("SCREENS");
 			static const juce::Identifier eventsNodeIdentifier("EVENTS");
+			static const juce::Identifier rootNodeIdentifier("ROOT");
 
 			static const juce::Identifier layoutVerticallyPropertyIdentifier("isVertical");
 			static const juce::Identifier layoutCollapsiblePropertyIdentifier("isCollapsible");
@@ -29,25 +29,37 @@ namespace mudi
 			static const juce::Identifier layoutHeaderVisibilityPropertyIdentifier("isHeaderVisible");
 			static const juce::Identifier layoutHeaderOwnershipPropertyIdentifier("hasHeaderOwnership");
 			static const juce::Identifier layoutResizerBarSize("resizerBarSize");
+			static const juce::Identifier layoutNamePropertyIdentifier("name");
+			static const juce::Identifier layoutVersionPropertyIdentifier("version");
+			static const juce::Identifier layoutHeaderHeightPropertyIdentifier("headerHeight");
+			static const juce::Identifier layoutModePropertyIdentifier("layoutMode");
+
 			static const juce::Identifier minimumSizePropertyIdentifier("minsize");
 			static const juce::Identifier maximumSizePropertyIdentifier("maxsize");
 			static const juce::Identifier defminimumSizePropertyIdentifier("defaultMinSize");
 			static const juce::Identifier defmaximumSizePropertyIdentifier("defaultMaxSize");
 			static const juce::Identifier preferredSizePropertyIdentifier("prefsize");
-			static const juce::Identifier layoutModePropertyIdentifier("layoutMode");
+			static const juce::Identifier defPreferredSizePropertyIdentifier("defaultPrefSize");
+
+			static const juce::Identifier topMarginPropertyIdentifier("topMargin");
+			static const juce::Identifier bottomMarginPropertyIdentifier("bottomMargin");
+			static const juce::Identifier leftMarginPropertyIdentifier("leftMargin");
+			static const juce::Identifier rightMarginPropertyIdentifier("rightMargin");
+			static const juce::Identifier marginPropertyIdentifier("margin");
+
 			static const juce::Identifier windowTargetScreenPropertyIdentifier("targetScreen");
 			static const juce::Identifier windowDefaultPreferredWidthPropertyIdentifier("defPrefWidth");
 			static const juce::Identifier windowDefaultPreferredHeigthPropertyIdentifier("defPrefHeight");
-			static const juce::Identifier defPreferredSizePropertyIdentifier("defaultPrefSize");
-			static const juce::Identifier classNamePropertyIdentifier("classname");
+
+			static const juce::Identifier classNamePropertyIdentifier("className");
 			static const juce::Identifier iconNamePropertyIdentifier("iconName");
+
 			static const juce::Identifier stretchMultiViewShowFirstPropertyIdentifier("showFirst");
 			static const juce::Identifier stretchMultiViewShowSecondPropertyIdentifier("showSecond");
 
 			static const juce::Identifier stretchLayoutPropertyIdentifier("Stretch");
 			static const juce::Identifier stackLayoutPropertyIdentifier("Stack");
 			static const juce::Identifier stretchMultiViewLayoutPropertyIdentifier("StretchMultiView");
-
 
 			static const juce::Identifier idPropertyIdentifier("id");
 			static const juce::Identifier descrPropertyIdentifier("descr");
@@ -65,6 +77,7 @@ namespace mudi
 			static const juce::Identifier unselectedEventPropertyIdentifier("UNSELECTED");
 			static const juce::Identifier targetPropertyIdentifier("target");
 			static const juce::Identifier actionPropertyIdentifier("action");
+
 
 		}
 

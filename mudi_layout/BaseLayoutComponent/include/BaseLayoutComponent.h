@@ -1,5 +1,4 @@
-#ifndef BASE_STAM_COMP_H_INCLUDED
-#define BASE_STAM_COMP_H_INCLUDED
+#pragma once
 
 namespace mudi
 {
@@ -7,7 +6,6 @@ namespace mudi
 	{
 		using namespace juce;
 		using namespace mudi;
-		using namespace mudi_utilities;
 
 		/**
 		 * @class BaseLayoutComponent
@@ -52,7 +50,7 @@ namespace mudi
 			}
 
 			ValueTree getPropertiesState() { 
-				return state.getChildWithName(mudi_utilities::VTIDs::componentPropertiesIdentifier);
+				return state.getChildWithName(mudi_layout::VTIDs::componentPropertiesIdentifier);
 			}
 
 			virtual void addProperty(ValueTree property)
@@ -60,14 +58,17 @@ namespace mudi
 				auto parametersVT = getPropertiesState();
 
 				if (parametersVT.isValid()) {
+
 					parametersVT.copyPropertiesAndChildrenFrom(property, NULL);
 
-					if (parametersVT.hasProperty(mudi_utilities::VTIDs::iconNamePropertyIdentifier)) {
-						auto iconName = parametersVT.getProperty(mudi_utilities::VTIDs::iconNamePropertyIdentifier, "").toString();
-						//imageData = getBinaryRes(iconName);
+					if (parametersVT.hasProperty(VTIDs::iconNamePropertyIdentifier)) {
+						
+						auto iconName = parametersVT.getProperty(VTIDs::iconNamePropertyIdentifier, "").toString();
+						
 					}
 
 				}
+
 			}
 
 			virtual int getDawComponentLayoutModeProperty() {
@@ -80,10 +81,10 @@ namespace mudi
 				auto parametersVT = getPropertiesState();
 
 				if (parametersVT.isValid()) {
-					ValueTree prop = parametersVT.getChildWithProperty(mudi_utilities::VTIDs::propertyNameIdentifier, name);
+					ValueTree prop = parametersVT.getChildWithProperty(VTIDs::propertyNameIdentifier, name);
 					if (prop.isValid())
 					{
-						return prop.getProperty(mudi_utilities::VTIDs::propertyValueIdentifier);
+						return prop.getProperty(VTIDs::propertyValueIdentifier);
 					}
 				}
 
@@ -128,5 +129,3 @@ namespace mudi
 
 	} //stem_components
 } //mudi
-
-#endif  // BASEDC_H_INCLUDED

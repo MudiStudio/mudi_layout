@@ -124,7 +124,7 @@ namespace mudi
 
 			MudiResizableWindow* window = new MudiResizableWindow(options.windowName, options.closeApplicationOnCloseButton);
 
-			auto display = ScreenManager->getDisplay(options.targetScreen);
+			auto display = &Desktop::getInstance().getDisplays().displays[options.targetScreen];
 
 			auto displayArea = display->userArea;
 
