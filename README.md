@@ -1,5 +1,4 @@
-![alt text](https://assets.juce.com/juce/JUCE_banner_github.png "MUDI")
-
+<img src="logo.png" alt="Project Logo" width="300" title="My Project Logo" />
 
 ## Getting Started
 
