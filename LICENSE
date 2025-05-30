@@ -1,21 +1,7 @@
-MIT License
+The Layout modules isdual-licensed under the AGPLv3 and the commercial MUDI licence.
 
-Copyright (c) 2025 MudiStudio
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+The MUDI Licence
+If you are not licensing the JUCE Framework modules under the AGPLv3 then by downloading, installing, or using the MUDI Framework, or combining the MUDI Framework with any other source code, object code, content or any other copyrightable work, you agree to the terms of the the JUCE 8 End User Licence Agreement, and all incorporated terms including the MUDI Privacy Policy and the MUDI Website Terms of Service, as applicable, which will bind you. If you do not agree to the terms of this Agreement, we will not license the JUCE Framework to you, and you must discontinue the installation or download process and cease use of the MUDI Framework.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE MUDI FRAMEWORK IS PROVIDED "AS IS" WITHOUT ANY WARRANTY, AND ALL WARRANTIES, WHETHER EXPRESSED OR IMPLIED, INCLUDING WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, ARE DISCLAIMED.
