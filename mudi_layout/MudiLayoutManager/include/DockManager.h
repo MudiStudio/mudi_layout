@@ -66,7 +66,7 @@ namespace mudi
 			}
 
 			virtual bool perform(const InvocationInfo& info) override {
-				LayoutManager->perform(info);
+				return LayoutManager->perform(info);
 			}
 
 			// =====================//

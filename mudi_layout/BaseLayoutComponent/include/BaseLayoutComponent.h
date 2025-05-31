@@ -29,7 +29,7 @@ namespace mudi
 
 			virtual ~BaseLayoutComponent();
 
-			virtual void setKeyMode(bool isOn) {}
+			virtual void setKeyMode(bool isOn) { juce::ignoreUnused(isOn); }
 			
 			void setState(ValueTree& newState);
 
@@ -50,7 +50,7 @@ namespace mudi
 			}
 
 			ValueTree getPropertiesState() { 
-				return state.getChildWithName(mudi_layout::VTIDs::componentPropertiesIdentifier);
+				return state.getChildWithName(VTIDs::componentPropertiesIdentifier);
 			}
 
 			virtual void addProperty(ValueTree property)

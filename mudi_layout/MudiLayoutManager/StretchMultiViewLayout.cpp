@@ -73,7 +73,7 @@ namespace mudi
 		void StretchMultiViewLayoutHeader::resized() {
 
 			auto area = getLocalBounds().reduced(3).withTrimmedLeft(2).withTrimmedRight(2);
-			float margin = 1.0f;
+			
 			int buttonSize = area.getHeight();
 
 			for (auto* b : headerButtons) {

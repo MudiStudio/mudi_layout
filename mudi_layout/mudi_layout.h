@@ -57,6 +57,8 @@ namespace mudi {
 #include "Factory/include/BaseFactoryDatabase.h"
 #include "Factory/include/FactoryBuildable.h"
 
+#include "VTIdentifiers.h"
+
 #include "BaseLayoutComponent/include/BaseLayoutComponent.h"
 
 #include "LayoutComponents/include/LayoutHeaderPanelComponent.h"
@@ -68,4 +70,3 @@ namespace mudi {
 #include "MudiLayoutManager/include/StretchMultiViewLayout.h"
 
 #include "LayoutUtilities/include/LayoutUtilities.h"
-#include "VTIdentifiers.h"

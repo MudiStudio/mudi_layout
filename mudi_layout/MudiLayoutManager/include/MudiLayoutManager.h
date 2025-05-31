@@ -218,7 +218,7 @@ namespace mudi
 			std::function<void(CommandID commandID, ApplicationCommandInfo& result)> getCommandInfo = [](CommandID commandID, ApplicationCommandInfo& result) {};
 
 			//return Api->getCurrentUIBehaviour().perform(info);
-			std::function<void(const juce::ApplicationCommandTarget::InvocationInfo& info)> perform = [](const juce::ApplicationCommandTarget::InvocationInfo& info) {};
+			std::function<bool(const juce::ApplicationCommandTarget::InvocationInfo& info)> perform = [](const juce::ApplicationCommandTarget::InvocationInfo& info) {return false; };
 
 
 			// -------------------------------- //

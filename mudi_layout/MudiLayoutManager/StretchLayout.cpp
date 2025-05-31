@@ -278,6 +278,8 @@ namespace mudi
 
 		void StretchLayout::compressExpandComponent(Component* targetComponent, bool compress) {
 			//TODO logica di espansione/compressione
+			juce::ignoreUnused(targetComponent);
+			juce::ignoreUnused(compress);
 		}
 
 	}

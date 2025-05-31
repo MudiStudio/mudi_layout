@@ -111,7 +111,7 @@ namespace mudi
         }
 
         void DrawableBtnComponent::paintOverChildren(Graphics& g) {
-
+            juce::ignoreUnused(g);
         }
 
         void DrawableBtnComponent::setDrawButtonBackground(bool draw) {
