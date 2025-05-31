@@ -52,21 +52,21 @@ namespace mudi {
 }
 
 
-#include "Factory/include/Factory.h"
-#include "Factory/include/FactoryDatabase.h"
-#include "Factory/include/BaseFactoryDatabase.h"
-#include "Factory/include/FactoryBuildable.h"
+#include "Factory/Factory.h"
+#include "Factory/FactoryDatabase.h"
+#include "Factory/BaseFactoryDatabase.h"
+#include "Factory/FactoryBuildable.h"
 
 #include "VTIdentifiers.h"
 
-#include "BaseLayoutComponent/include/BaseLayoutComponent.h"
+#include "BaseLayoutComponent/BaseLayoutComponent.h"
 
-#include "LayoutComponents/include/LayoutHeaderPanelComponent.h"
+#include "LayoutComponents/LayoutHeaderPanelComponent.h"
 
-#include "MudiLayoutManager/include/MudiLayoutManager.h"
-#include "MudiLayoutManager/include/DockManager.h"
-#include "MudiLayoutManager/include/StackLayout.h"
-#include "MudiLayoutManager/include/StretchLayout.h"
-#include "MudiLayoutManager/include/StretchMultiViewLayout.h"
+#include "MudiLayoutManager/MudiLayoutManager.h"
+#include "MudiLayoutManager/DockManager.h"
+#include "MudiLayoutManager/StackLayout.h"
+#include "MudiLayoutManager/StretchLayout.h"
+#include "MudiLayoutManager/StretchMultiViewLayout.h"
 
-#include "LayoutUtilities/include/LayoutUtilities.h"
+#include "LayoutUtilities/LayoutUtilities.h"
